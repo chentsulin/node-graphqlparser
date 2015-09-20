@@ -1,0 +1,32 @@
+{
+  "name": "node-graphqlparser",
+  "version": "0.0.1",
+  "description": "a libgraphqlparser wrapper",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "configure": "node-gyp configure",
+    "build": "node-gyp build",
+    "test": "mocha"
+  },
+  "author": {
+    "name": "C.T. Lin",
+    "email": "chentsulin@gmail.com",
+    "url": "github.com/chentsulin"
+  },
+  "keywords": [
+    "graphql",
+    "parser"
+    "graphqlparser",
+    "nan",
+    "node-addons"
+  ],
+  "devDependencies": {
+    "nan": "^2.0.5",
+    "mocha": "^2.2.5",
+    "node-gyp": "^1.0.3"
+  },
+  "dependencies": {
+    "bindings": "^1.2.1"
+  }
+}
