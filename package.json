@@ -5,6 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "preinstall": "git submodule init && git submodule update",
     "configure": "node-gyp configure",
     "build": "node-gyp build",
     "test": "mocha"
