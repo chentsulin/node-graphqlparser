@@ -16,7 +16,7 @@
   },
   "keywords": [
     "graphql",
-    "parser"
+    "parser",
     "graphqlparser",
     "nan",
     "node-addons"
