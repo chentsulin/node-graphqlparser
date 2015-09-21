@@ -18,18 +18,18 @@ NAN_METHOD(parseString) {
 	Local<v8::String> source = info[0].As<v8::String>();
 
 	Nan::Utf8String val(source);
-    char *in = *val;
+  char *in = *val;
 
  	auto AST = facebook::graphql::parseString(in, &error);
 
-  	if (!AST) {
-    	Nan::ThrowTypeError(error);
-    	free((void *)error);
-    	return;
-  	}
+	if (!AST) {
+  	Nan::ThrowTypeError(error);
+  	free((void *)error);
+  	return;
+	}
 
-  	const char *result = graphql_ast_to_json((const struct GraphQLAstNode *)AST.get());
-    info.GetReturnValue().Set(Nan::New(result).ToLocalChecked());
+	const char *result = graphql_ast_to_json((const struct GraphQLAstNode *)AST.get());
+  info.GetReturnValue().Set(Nan::New(result).ToLocalChecked());
 }
 
 NAN_METHOD(parseFile) {
@@ -44,20 +44,20 @@ NAN_METHOD(parseFile) {
 	Local<v8::String> source = info[0].As<v8::String>();
 
 	Nan::Utf8String val(source);
-    char *path = *val;
+  char *path = *val;
 
-    in = fopen(path, "r");
+  in = fopen(path, "r");
 
-  	auto AST = facebook::graphql::parseFile(in, &error);
+	auto AST = facebook::graphql::parseFile(in, &error);
 
-    fclose(in);
+  fclose(in);
 
-  	if (!AST) {
-    	Nan::ThrowTypeError(error);
-    	free((void *)error);
-    	return;
-  	}
+	if (!AST) {
+  	Nan::ThrowTypeError(error);
+  	free((void *)error);
+  	return;
+	}
 
-  	const char *result = graphql_ast_to_json((const struct GraphQLAstNode *)AST.get());
-    info.GetReturnValue().Set(Nan::New(result).ToLocalChecked());
+	const char *result = graphql_ast_to_json((const struct GraphQLAstNode *)AST.get());
+  info.GetReturnValue().Set(Nan::New(result).ToLocalChecked());
 }
